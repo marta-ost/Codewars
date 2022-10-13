@@ -23,6 +23,6 @@ Examples
 
 public class Square {    
     public static boolean isSquare(int n) { 
-      return Math.sqrt(n) % 1.00 == 0 ? true : false;
+      return Math.sqrt(n) % 1.00 == 0;
     }
 }
