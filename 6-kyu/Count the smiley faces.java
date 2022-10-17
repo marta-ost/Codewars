@@ -1,0 +1,46 @@
+/*
+DESCRIPTION:
+Given an array (arr) as an argument complete the function countSmileys that should return the total number of smiling faces.
+
+Rules for a smiling face:
+
+Each smiley face must contain a valid pair of eyes. Eyes can be marked as : or ;
+A smiley face can have a nose but it does not have to. Valid characters for a nose are - or ~
+Every smiling face must have a smiling mouth that should be marked with either ) or D
+No additional characters are allowed except for those mentioned.
+
+Valid smiley face examples: :) :D ;-D :~)
+Invalid smiley faces: ;( :> :} :]
+
+Example
+countSmileys([':)', ';(', ';}', ':-D']);       // should return 2;
+countSmileys([';D', ':-(', ':-)', ';~)']);     // should return 3;
+countSmileys([';]', ':[', ';*', ':$', ';-D']); // should return 1;
+Note
+In case of an empty array return 0. You will not be tested with invalid input (input will always be an array). Order of the face (eyes, nose, mouth) elements will always be the same.
+*/
+
+import java.util.*;
+
+public class SmileFaces {
+  
+  public static int countSmileys(List<String> arr) {
+    List<Character> eyes = new ArrayList<>(Arrays.asList(':', ';'));
+    List<Character> noses = new ArrayList<>(Arrays.asList('-', '~'));
+    List<Character> mouths = new ArrayList<>(Arrays.asList(')', 'D'));
+    int facesCount = 0;
+    
+    for (String face : arr) {
+      char eye = face.charAt(0);
+      char mouth = face.charAt(face.length() - 1);
+      char nose = face.charAt(1);
+      
+      if ((eyes.contains(eye) && mouths.contains(mouth)) &&
+          (face.length() == 2 || 
+          (face.length() == 3 && noses.contains(nose)))) {
+        facesCount++;
+      }
+    }
+    return facesCount;
+  }
+}
