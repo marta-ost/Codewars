@@ -12,7 +12,9 @@ total_people
 NOTE: Your solution should use pure SQL. Ruby is used within the test cases to do the actual testing.
 */
 
-SELECT age, COUNT(*) AS total_people
+SELECT 
+  age, 
+  COUNT(*) AS total_people
 FROM people
 GROUP BY age
 HAVING COUNT(*) >= 10;
