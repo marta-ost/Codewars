@@ -12,4 +12,4 @@ Note: IsActive (true or false)
 
 SELECT *
 FROM students
-WHERE IsActive = 1;
+WHERE IsActive;
