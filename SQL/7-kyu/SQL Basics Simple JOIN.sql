@@ -17,11 +17,7 @@ NOTE: Your solution should use pure SQL. Ruby is used within the test cases to d
 */
 
 SELECT
-  p.id,
-  p.name,
-  p.isbn,
-  p.company_id,
-  p.price,
+  p.*,
   c.name AS company_name
 FROM products AS p
 JOIN companies AS c
