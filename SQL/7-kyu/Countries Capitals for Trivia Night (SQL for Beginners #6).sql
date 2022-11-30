@@ -33,6 +33,8 @@ Best-Selling Books (SQL for Beginners #5)
 Countries Capitals for Trivia Night (SQL for Beginners #6)
 */
 
-SELECT capital FROM countries 
+SELECT capital 
+FROM countries 
 WHERE country LIKE 'E%' AND continent IN ('Afrika', 'Africa') 
-ORDER BY capital LIMIT 3;
+ORDER BY capital 
+LIMIT 3;
