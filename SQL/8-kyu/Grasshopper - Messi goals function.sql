@@ -17,6 +17,5 @@ For example:
 
 -- you will be given a table, goals, with columns la_liga_goals, copa_del_rey_goals, and champions_league_goals. Return a table with a column, res.
 SELECT 
-  SUM(la_liga_goals) + SUM(copa_del_rey_goals) + SUM(champions_league_goals) AS res
-FROM goals
-GROUP BY goals;
+  la_liga_goals + copa_del_rey_goals + champions_league_goals AS res
+FROM goals;
