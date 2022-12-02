@@ -18,8 +18,8 @@ sha1
 sha256
 */
 
-SELECT 
-  md5 || REPEAT('1', LENGTH(sha256) - LENGTH(md5)) AS md5,
-  REPEAT('0', LENGTH(sha256) - LENGTH(sha1)) || sha1 AS sha1,
+SELECT
+  RPAD(md5, LENGTH(sha256), '1') AS md5,
+  LPAD(sha1, LENGTH(sha256), '0') AS sha1,
   sha256
 FROM encryption;
