@@ -24,4 +24,8 @@ Best-Selling Books (SQL for Beginners #5)
 Countries Capitals for Trivia Night (SQL for Beginners #6)
 */
 
-SELECT name, country FROM travelers WHERE country != 'USA' AND country != 'Canada' AND country != 'Mexico';
+SELECT 
+  name, 
+  country 
+FROM travelers 
+WHERE country NOT IN ('USA', 'Canada', 'Mexico');
