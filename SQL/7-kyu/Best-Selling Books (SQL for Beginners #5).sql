@@ -21,4 +21,7 @@ Best-Selling Books (SQL for Beginners #5)
 Countries Capitals for Trivia Night (SQL for Beginners #6)
 */
 
-SELECT * FROM books ORDER BY copies_sold DESC LIMIT 5;
+SELECT * 
+FROM books 
+ORDER BY copies_sold DESC 
+LIMIT 5;
