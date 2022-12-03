@@ -16,8 +16,9 @@ race
 count
 */
 
-SELECT race, COUNT(*) AS count 
+SELECT 
+  race, 
+  COUNT(*) AS count 
 FROM demographics 
 GROUP BY race
-ORDER BY count 
-DESC;
+ORDER BY count DESC;
