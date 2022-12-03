@@ -20,4 +20,8 @@ Best-Selling Books (SQL for Beginners #5)
 Countries Capitals for Trivia Night (SQL for Beginners #6)
 */
 
-SELECT name, age FROM users WHERE age >= 18;
+SELECT 
+  name, 
+  age 
+FROM users 
+WHERE age >= 18;
