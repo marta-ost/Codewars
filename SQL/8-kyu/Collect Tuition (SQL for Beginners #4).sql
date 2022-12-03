@@ -23,4 +23,6 @@ Best-Selling Books (SQL for Beginners #5)
 Countries Capitals for Trivia Night (SQL for Beginners #6)
 */
 
-SELECT * FROM students WHERE tuition_received = false;
+SELECT * 
+FROM students 
+WHERE tuition_received = false;
