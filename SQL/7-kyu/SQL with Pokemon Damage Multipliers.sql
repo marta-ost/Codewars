@@ -27,5 +27,4 @@ FROM pokemon AS p
 JOIN multipliers AS m 
   ON p.element_id = m.id
 WHERE p.str * m.multiplier >= 40
-ORDER BY modifiedStrength
-DESC;
+ORDER BY modifiedStrength DESC;
