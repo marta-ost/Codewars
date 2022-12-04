@@ -14,5 +14,5 @@ Note: for this kata y isn't considered a vowel.
 -- # write your SQL statement here: you are given a table 'disemvowel' with column 'str', return a table with column 'str' and your result in a column named 'res'.
 SELECT
   str,
-  REGEXP_REPLACE(str, '[aeiouAEIOU]', '', 'g') AS res
+  REGEXP_REPLACE(str, '[aeiou]', '', 'ig') AS res
 FROM disemvowel;
