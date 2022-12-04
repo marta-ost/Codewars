@@ -34,17 +34,8 @@ After placing signs and brackets, the Maximum value obtained from the expression
 */
 
 SELECT
-  CASE WHEN a + b + c >= a * b * c AND
-            a + b + c >= (a + b) * c AND
-            a + b + c >= a * (b + c)
-       THEN a + b + c
-       WHEN a * b * c >= a + b + c AND
-            a * b * c >= (a + b) * c AND
-            a * b * c >= a * (b + c)
-       THEN a * b * c 
-       WHEN (a + b) * c >= a + b + c AND
-            (a + b) * c >= a * b * c AND
-            (a + b) * c >= a * (b + c)
-       THEN (a + b) * c
-       ELSE a * (b + c) END AS res
+  GREATEST(a + b + c,
+           a * b * c,
+           (a + b) * c,
+           a * (b + c)) AS res
 FROM expression_matter;
