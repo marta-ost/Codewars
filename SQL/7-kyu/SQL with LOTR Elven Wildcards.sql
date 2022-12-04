@@ -16,7 +16,7 @@ To aid the scribes, return the firstname and lastname column concatenated, separ
 */
 
 SELECT
-  UPPER(SUBSTR(firstname, 1, 1)) || SUBSTR(firstname, 2) || ' ' || UPPER(SUBSTR(lastname, 1, 1)) || SUBSTR(lastname, 2) AS shortlist
+  INITCAP(firstname || ' ' || lastname) AS shortlist
 FROM elves
 WHERE firstname LIKE '%tegil%' 
    OR lastname LIKE '%astar%';
