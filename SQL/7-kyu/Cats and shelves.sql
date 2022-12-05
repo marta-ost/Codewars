@@ -42,11 +42,5 @@ Inspirers
 SELECT
   a,
   b,
-  CASE WHEN (b - a) % 3 = 0 
-       THEN (b - a) / 3
-       WHEN (b - a) % 3 = 1 
-       THEN (b - a) / 3 + 1
-       WHEN (b - a) % 3 = 2 
-       THEN (b - a) / 3 + 2
-       ELSE 0 END AS res
+  (b - a) / 3 + (b - a) % 3 AS res
 FROM jumps;
