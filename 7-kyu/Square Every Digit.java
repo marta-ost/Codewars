@@ -13,17 +13,11 @@ import java.util.stream.*;
 public class SquareDigit {
 
   public int squareDigits(int n) {
-    String number = Integer.toString(n);
-    String[] digits = number.split("");
-    
-    List<Integer> squares = Arrays.stream(digits)
-      .map(d -> (int) Math.pow(Integer.parseInt(d), 2))
-      .collect(Collectors.toList());
-    
-    StringBuilder squared = new StringBuilder();
-    for (Integer square : squares) {
-      squared.append(square);
-    }
-    return Integer.parseInt(squared.toString());
+    return Integer.parseInt(String.valueOf(n)
+          .chars()
+          .map(d -> Integer.parseInt(String.valueOf((char) d)))
+          .map(d -> d * d)
+          .mapToObj(String::valueOf)
+          .collect(Collectors.joining("")));
   }
 }
