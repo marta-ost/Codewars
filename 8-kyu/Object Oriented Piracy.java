@@ -48,6 +48,6 @@ public class Ship {
   }
   
   public boolean isWorthIt() {
-    return draft - crew * 1.5 > 20 ? true : false;
+    return draft - crew * 1.5 > 20;
   }
 } 
