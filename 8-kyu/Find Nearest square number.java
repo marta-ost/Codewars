@@ -15,18 +15,6 @@ Not prime numbers
 
 public class CodeWarsMath {
   public static int nearestSq(final int n){
-    return findNearest(n, 0);
-  }
-  
-  private static int findNearest(int n, int previousSq) {
-    for (int i = 1; i <= n; i++) {
-      int currentSq = (int) Math.pow(i, 2);
-      if (Math.abs(currentSq - n) < Math.abs(previousSq - n)) {
-        previousSq = currentSq;
-      } else {
-        return previousSq;
-      }
-    }
-    return previousSq;
+    return (int) Math.pow(Math.round(Math.sqrt(n)), 2);
   }
 }
