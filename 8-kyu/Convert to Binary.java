@@ -10,17 +10,6 @@ to_binary(11) / should return 1011 /
 
 public class Kata {
   public static int toBinary(int n) {
-    StringBuilder binary = new StringBuilder();
-    return getBinary(n, binary);
-  }
-  
-  private static int getBinary(int n, StringBuilder binary) {
-    int currentRemainder = n % 2;
-    int newN = n / 2;
-    binary.append(String.valueOf(currentRemainder));
-  
-    return newN == 0 
-      ? Integer.parseInt(binary.reverse().toString()) 
-      : getBinary(newN, binary);
+    return Integer.parseInt(Integer.toBinaryString(n));
   }
 }
