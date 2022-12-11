@@ -8,12 +8,12 @@ n = 1  ==> [1, 2]     # [2^0, 2^1]
 n = 2  ==> [1, 2, 4]  # [2^0, 2^1, 2^2]
 */
 
+import static java.util.stream.LongStream.rangeClosed;
+
 public class Kata {
   public static long[] powersOfTwo(int n) {
-    long[] powers = new long[n + 1];
-    for (int i = 0; i <= n; i++) {
-      powers[i] = (long) Math.pow(2, i);
-    }
-    return powers;
+    return rangeClosed(0, n)
+      .map(x -> (long) Math.pow(2, x))
+      .toArray();
   }
 }
