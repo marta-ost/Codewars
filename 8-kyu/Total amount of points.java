@@ -23,9 +23,9 @@ our team always plays 10 matches in the championship
 public class TotalPoints {
   public static int points(String[] games) {
     int sum = 0;
-    for (int i = 0; i < games.length; i++) {
-      int scoreX = games[i].charAt(0);
-      int scoreY = games[i].charAt(2);
+    for (String game : games) {
+      int scoreX = game.charAt(0);
+      int scoreY = game.charAt(2);
       if (scoreX > scoreY) {
         sum += 3;
       } else if (scoreX == scoreY) {
