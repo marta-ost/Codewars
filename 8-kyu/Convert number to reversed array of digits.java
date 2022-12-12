@@ -10,12 +10,11 @@ Example(Input => Output):
 
 public class Kata {
   public static int[] digitize(long n) {
-    String[] digits = String.valueOf(n).split("");
-    int[] reversed = new int[digits.length];
-    
-    for (int i = 0; i < digits.length; i++) {
-      reversed[i] = Integer.parseInt(digits[digits.length - i - 1]);
-    }
-    return reversed;
+    return new StringBuilder()
+      .append(n)
+      .reverse()
+      .chars()
+      .map(Character::getNumericValue)
+      .toArray();
   }
 }
