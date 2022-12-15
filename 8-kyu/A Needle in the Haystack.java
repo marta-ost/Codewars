@@ -14,13 +14,10 @@ Example(Input --> Output)
 Note: In COBOL, it should return "found the needle at position 6"
 */
 
+import java.util.Arrays;
+
 public class Kata {
   public static String findNeedle(Object[] haystack) {
-    for (int i = 0; i < haystack.length; i++) {
-      if (haystack[i] == "needle") {
-        return "found the needle at position " + i;
-      }
-    }
-    return "";
+    return "found the needle at position " + Arrays.asList(haystack).indexOf("needle");
   }
 }
