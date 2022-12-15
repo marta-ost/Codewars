@@ -19,11 +19,8 @@ http://www.rubycuts.com/enum-all
 import java.util.function.IntPredicate;
 import java.util.Arrays;
 
-public class Solution{
-  public static boolean all(int[] list, IntPredicate predicate){
-    int[] filtered = Arrays.stream(list)
-      .filter(predicate)
-      .toArray();
-    return list.length == filtered.length;
+public class Solution {
+  public static boolean all(int[] list, IntPredicate predicate) {
+    return Arrays.stream(list).allMatch(predicate);
   }
 }
