@@ -14,21 +14,11 @@ Examples
 
 public class Kata {
   public static Integer prevMultOfThree(int n) {
-    return findPrevious(n);
-  }
-  
-  public static Integer findPrevious(int n) {
-    if (n % 3 == 0) {
-      return n;
-    } else {
-      String nStr = String.valueOf(n);
-      if (nStr.length() > 1) {
-        String newNStr = nStr.substring(0, nStr.length() - 1);
-        int newN = Integer.parseInt(newNStr);
-        return findPrevious(newN);
-      } else {
-        return null;
+    for (; n > 0; n /= 10) {
+      if (n % 3 == 0) {
+        return n;
       }
     }
+    return null;
   }
 }
