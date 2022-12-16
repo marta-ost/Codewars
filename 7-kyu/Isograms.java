@@ -13,14 +13,6 @@ isIsogram "aba" = false
 
 public class isogram {
   public static boolean isIsogram(String str) {
-    char[] letters = str.toLowerCase().toCharArray();
-    for (int i = 0; i < letters.length; i++) {
-      for (int j = 0; j < letters.length; j++) {
-        if (i != j && letters[j] == letters[i]) {
-          return false;
-        }
-      }
-    }
-    return true;
+    return str.length() == str.toLowerCase().chars().distinct().count();
   } 
 }
