@@ -12,6 +12,6 @@ n = 3, so I expect a 3x3 square back just like below as a string:
 
 public class Kata {
   public static final String generateShape(int n) {
-    return ("+".repeat(n) + "\n").repeat(n).substring(0, (n + 1) * n - 1);
+    return ("+".repeat(n) + "\n").repeat(n).trim();
   }
 }
