@@ -22,9 +22,8 @@ If you like this kata, check out the next one: Last Survivors Ep.2
 public class Kata {
   public static String lastSurvivor(String letters, int[] coords) {
     StringBuilder lettersBuilder = new StringBuilder(letters);
-    for (int i = 0; i < coords.length; i++) {
-      lettersBuilder.setCharAt(coords[i], '&');
-      lettersBuilder = new StringBuilder(lettersBuilder.toString().replace("&", ""));
+    for (int coord : coords) {
+      lettersBuilder.deleteCharAt(coord);
     }
     return lettersBuilder.toString();
   }
