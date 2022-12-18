@@ -12,17 +12,11 @@ Input: 123456789 Output: 987654321
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.stream.*;
 
 public class DescendingOrder {
   public static int sortDesc(final int num) {
-    Integer[] digits = Arrays.stream(String.valueOf(num).split(""))
-      .mapToInt(Integer::parseInt)
-      .boxed()
-      .toArray(Integer[]::new);
+    String[] digits = String.valueOf(num).split("");
     Arrays.sort(digits, Collections.reverseOrder());
-    return Integer.parseInt(Arrays.stream(digits)
-      .map(x -> x.toString())
-      .collect(Collectors.joining()));
+    return Integer.valueOf(String.join("", digits));
   }
 }
