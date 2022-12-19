@@ -6,11 +6,7 @@ Just a simple sorting usage. Create a function that returns the elements of the 
 import java.util.Arrays;
 
 public class SortArray {
-  public static Integer[] sortArray(Integer[] array){
-    Arrays.sort(array);
-    return array;
-  }
-  public static String[] sortArray(String[] array){
+  public static Object[] sortArray(Object[] array){
     Arrays.sort(array);
     return array;
   }
