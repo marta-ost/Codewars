@@ -11,12 +11,13 @@ Output: String with comma delimited elements of the array in th same order.
 Note: if this seems too simple for you try the next level
 */
 
+import java.util.stream.*;
+import java.util.Arrays;
+
 public class ArrayPrinter {
   public static String printArray(Object[] array) {
-    StringBuilder result = new StringBuilder();
-    for (Object elem : array) {
-      result.append(String.valueOf(elem)).append(",");
-    }
-    return result.substring(0, result.length() - 1);
+    return Arrays.stream(array)
+      .map(Object::toString)
+      .collect(Collectors.joining(","));
   }
 }
