@@ -13,7 +13,10 @@ sleigh.authenticate("jhoffner", "CodeWars") # Nope, even Jak
 */
 
 public class Sleigh {
+  public static final String SANTA_NAME = "Santa Claus";
+  public static final String SANTA_PASSWORD = "Ho Ho Ho!";
+  
   public static Boolean authenticate(String name, String password){
-    return name.equals("Santa Claus") && password.equals("Ho Ho Ho!");
+    return name.equals(SANTA_NAME) && password.equals(SANTA_PASSWORD);
   }
 }
