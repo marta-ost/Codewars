@@ -31,4 +31,16 @@ public class NameMe {
     this.lastName = last;
     this.fullName = first + " " + last;
   }
+  
+  public String getFirstName() {
+    return firstName;
+  }
+  
+  public String getLastName() {
+    return lastName;
+  }
+  
+  public String getFullName() {
+    return fullName;
+  }
 }
