@@ -12,12 +12,9 @@ if it was over 88 you should return "Leo got one already!"
 
 public class Kata {
   public static String leo(final int oscar) {
-    return oscar > 88 
-      ? "Leo got one already!"
-      : (oscar == 88
-        ? "Leo finally won the oscar! Leo is happy"
-        : (oscar == 86 
-          ? "Not even for Wolf of wallstreet?!"
-          : "When will you give Leo an Oscar?"));
+    return oscar > 88 ? "Leo got one already!" : 
+           oscar == 88 ? "Leo finally won the oscar! Leo is happy" : 
+           oscar == 86 ? "Not even for Wolf of wallstreet?!" :
+                         "When will you give Leo an Oscar?";
   }
 }
