@@ -20,14 +20,10 @@ Constraints: 5 ≤ inputArray.length ≤ 50, 0 ≤ inputArray[i] ≤ 10.
 [output] an integer
 */
 
+import static java.util.stream.IntStream.of;
+
 public class Kata {
   public static int houseNumbersSum(final int[] arr) {
-    int count = 0;
-    for (int houseNumber : arr) {
-      if (houseNumber == 0)
-        return count;
-      count += houseNumber;
-    }
-    return 0;
+    return of(arr).takeWhile(i -> i > 0).sum();
   }
 }
