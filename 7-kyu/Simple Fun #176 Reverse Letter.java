@@ -15,17 +15,8 @@ A string consists of lowercase latin letters, digits and symbols.
 [output] a string
 */
 
-import java.util.stream.*;
-
 public class Kata {
   public static String reverseLetter(final String str) {
-    String filtered = str
-      .chars()
-      .mapToObj(ch -> (char) ch)
-      .map(ch -> ch.toString())
-      .filter(ch -> ch.matches("[A-Za-z]"))
-      .collect(Collectors.joining());
-    StringBuilder reversed = new StringBuilder(filtered);
-    return reversed.reverse().toString();
+     return new StringBuilder(str.replaceAll("[^a-zA-Z]", "")).reverse().toString();
   }
 }
