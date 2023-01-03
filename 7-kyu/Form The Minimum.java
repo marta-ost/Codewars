@@ -24,8 +24,8 @@ import java.util.stream.*;
 
 public class Minimum {
   public static int minValue(int[] values) {
-    Arrays.sort(values);
     return Integer.parseInt(Arrays.stream(values)
+      .sorted()
       .distinct()
       .mapToObj(digit -> String.valueOf(digit))
       .collect(Collectors.joining()));
