@@ -9,13 +9,14 @@ Example
 arithmetic_sequence_elements(1, 2, 5) == "1, 3, 5, 7, 9"
 */
 
+import java.util.stream.*;
+
 class Progression {
-  public static String arithmeticSequenceElements(int a, int d, long n) {
-    StringBuilder sequence = new StringBuilder();
-    for (int i = 0; i < n; i++) {
-      sequence.append(a).append(", ");
-      a += d;
-    }
-    return sequence.substring(0, sequence.length() - 2);
+  public static String arithmeticSequenceElements(int firstElem, int difference, long numberOfElems) {
+     return IntStream
+       .iterate(firstElem, elem -> elem + difference)
+       .limit(numberOfElems)
+       .mapToObj(Integer::toString)
+       .collect(Collectors.joining(", "));
   }
 }
