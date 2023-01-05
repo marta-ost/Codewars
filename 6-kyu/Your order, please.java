@@ -12,23 +12,14 @@ Examples
 ""  -->  ""
 */
 
-import java.util.TreeMap;
-import java.util.Map;
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class Order {
   public static String order(String words) {
-    StringBuilder sorted = new StringBuilder();
-    TreeMap<String, String> wordWithPosition = new TreeMap<>();
-    
-    String[] wordsArray = words.split(" ");
-    for (int i = 0; i < wordsArray.length; i++) {
-      for (int j = 0; j < wordsArray[i].length(); j++) {
-        if ((String.valueOf(wordsArray[i].charAt(j))).matches("[1-9]"))
-          wordWithPosition.put(String.valueOf(wordsArray[i].charAt(j)), wordsArray[i]);
-      }
-    }
-    for (Map.Entry<String, String> entry : wordWithPosition.entrySet())
-      sorted.append(entry.getValue()).append(" ");
-    return sorted.toString().trim();
+    return Arrays.stream(words.split(" "))
+      .sorted(Comparator.comparing(s -> Integer.valueOf(s.replaceAll("\\D", ""))))
+      .reduce((a, b) -> a + " " + b)
+      .get();
   }
 }
