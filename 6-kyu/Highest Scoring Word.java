@@ -13,30 +13,17 @@ If two words score the same, return the word that appears earliest in the origin
 All letters will be lowercase and all inputs will be valid.
 */
 
-import java.util.LinkedHashMap;
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class Kata {
   public static String high(String s) {
-    String[] words = s.split(" ");
-    LinkedHashMap<String, Integer> wordsWithValues = new LinkedHashMap<>();
-    
-    for (String word : words) {
-      int letterValue = 0;
-      int wordValue = 0;
-      
-      for (int index = 0; index < word.length(); index++) {
-        char letter = word.charAt(index);
-        letterValue = letter - 96;
-        wordValue += letterValue;
-      }  
-      wordsWithValues.put(word, wordValue);
-    }
-    
-    return wordsWithValues
-      .entrySet()
-      .stream()
-      .max((entry2, entry1) -> entry2.getValue() < entry1.getValue() ? -1 : 1)
-      .get()
-      .getKey();
+    return Arrays
+      .stream(s.split(" "))
+      .max(Comparator.comparingInt(word -> word
+                                   .chars()
+                                   .map(letter -> letter - 96)
+                                   .sum()))
+      .get(); 
   }
 }
