@@ -28,9 +28,11 @@ public class ZywOo {
         break;
       }
     }
-  
+    
+    int sheepIndex = array.length - (wolfIndex + 1);
+    
     return wolfIndex == array.length - 1 
       ? "Pls go away and stop eating my sheep" 
-      : "Oi! Sheep number " + (array.length - (wolfIndex + 1)) + "! You are about to be eaten by a wolf!";
+      : "Oi! Sheep number " + sheepIndex + "! You are about to be eaten by a wolf!";
   }
 }
