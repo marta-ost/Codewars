@@ -9,6 +9,6 @@ All values will be positive integers or floats, or zero.
 
 public class Plural {
   public static boolean isPlural(float f) {
-    return f == 1 ? false : true;
+    return f != 1;
   }
 }
