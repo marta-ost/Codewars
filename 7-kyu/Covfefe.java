@@ -8,9 +8,8 @@ For the languages where the string is not immutable (such as ruby), don't modify
 
 public class Covfefe {
   public static String covfefe(String tweet) {
-    String tweetCopy = new String(tweet);
     return tweet.contains("coverage") 
-      ? tweetCopy.replace("coverage", "covfefe")
-      : tweetCopy + " covfefe";
+      ? tweet.replace("coverage", "covfefe")
+      : tweet + " covfefe";
   }
 }
