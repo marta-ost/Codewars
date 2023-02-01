@@ -13,9 +13,6 @@ import java.util.Arrays;
 public class Solution {
    public static int[] largest(int n, int[] arr) {
      Arrays.sort(arr);
-     int[] largest = new int[n];
-     for (int i = 0; i < n; i++)
-       largest[i] = arr[arr.length - n + i];
-     return largest;
+     return Arrays.copyOfRange(arr, arr.length - n, arr.length);
    }
 }
