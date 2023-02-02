@@ -14,11 +14,13 @@ Examples:
                                        #  9+3 = 12  -->  2                        
 */
 
+import java.util.stream.IntStream;
+
 public class Kata {
   public static int[] incrementer(int[] numbers) {
-    int[] incremented = new int[numbers.length];
-    for (int i = 0; i < numbers.length; i++)
-      incremented[i] = (numbers[i] + i + 1) % 10;
-    return incremented;
+    return IntStream
+      .range(0, numbers.length)
+      .map(index -> (numbers[index] + (index + 1)) % 10)
+      .toArray();
   }
 }
