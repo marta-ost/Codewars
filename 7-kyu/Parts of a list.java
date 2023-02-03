@@ -24,30 +24,16 @@ Note
 You can see other examples for each language in "Your test cases"
 */
 
+import java.util.Arrays;
+
 public class Partlist {
   public static String[][] partlist(String[] arr) {
     String[][] allPartings = new String[arr.length - 1][2];
-    int partingIndex = 0;
     
     for (int partingPoint = 1; partingPoint < arr.length; partingPoint++) {
-      StringBuilder part1 = new StringBuilder();
-       for (int i = 0; i < partingPoint; i++) {
-         part1.append(arr[i]);         
-         if (i != partingPoint - 1)
-           part1.append(" ");
-        }
-      
-      StringBuilder part2 = new StringBuilder();
-       for (int i = partingPoint; i < arr.length; i++) {
-         part2.append(arr[i]);
-         if (i != arr.length - 1)
-           part2.append(" ");
-        }
-      
-      allPartings[partingIndex][0] = part1.toString();
-      allPartings[partingIndex][1] = part2.toString();
-      partingIndex++;
-    }
+      allPartings[partingPoint - 1][0] = String.join(" ", Arrays.copyOfRange(arr, 0, partingPoint));
+      allPartings[partingPoint - 1][1] = String.join(" ", Arrays.copyOfRange(arr, partingPoint, arr.length));
+    }   
     return allPartings;
   }
 }
