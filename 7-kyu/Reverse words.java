@@ -7,23 +7,14 @@ Examples
 "double  spaces"      ==> "elbuod  secaps"
 */
 
+import java.util.Arrays;
+import java.util.stream.*;
+
 public class Kata {
   public static String reverseWords(final String original) {
-    StringBuilder reversedWords = new StringBuilder();
-    StringBuilder word = new StringBuilder();
-    
-    for (int i = 0; i < original.length(); i++) {
-      char currentChar = original.charAt(i);
-      if (currentChar != ' ') {
-        word.append(currentChar);
-      } else {
-        reversedWords.append(word.reverse());
-        reversedWords.append(currentChar);
-        word = new StringBuilder("");
-      }
-    }
-    reversedWords.append(word.reverse());
-
-    return reversedWords.toString();
+    return original.trim().isEmpty() ? original
+      : Arrays.stream(original.split(" "))
+        .map(word -> new StringBuilder(word).reverse().toString())
+        .collect(Collectors.joining(" "));
   }
 }
