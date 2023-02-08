@@ -31,13 +31,16 @@ Note : duplications are not included when summing , (i.e) the numbers added only
 */
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class Solution {
   public static int maxTriSum (int[] numbers) {
     return Arrays.stream(numbers)
-      .sorted()
+      .boxed()
+      .sorted(Comparator.reverseOrder())
       .distinct()
-      .skip(Arrays.stream(numbers).distinct().count() - 3)
+      .limit(3)
+      .mapToInt(Integer::intValue)
       .sum();
   }
 }
