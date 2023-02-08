@@ -34,13 +34,11 @@ Any feedback would be much appreciated
 */
 
 public class Block {
-  private int[] array;
   private int width;
   private int length;
   private int height;
   
   public Block(int[] array) {
-    this.array = array;
     width = array[0];
     length = array[1];
     height = array[2];
