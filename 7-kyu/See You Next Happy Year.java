@@ -30,17 +30,10 @@ As the Next closest year with only distinct digits is 1023 .
 
 public class HappyYear {
   static public int nextHappyYear(int year) {
-    year++;
-    while (true) {
-      String yearStr = String.valueOf(year);
-      if (yearStr.charAt(0) == yearStr.charAt(1))
-        year = year / 100 * 100 + 100;
-      else if (yearStr.charAt(0) == yearStr.charAt(2) || yearStr.charAt(1) == yearStr.charAt(2))
-        year = year / 10 * 10 + 10;
-      else if (yearStr.charAt(0) == yearStr.charAt(3) || yearStr.charAt(1) == yearStr.charAt(3) || yearStr.charAt(2) == yearStr.charAt(3))
-        year = year / 1 * 1 + 1;
-      else
-        return year;
-    }
+    while (String.valueOf(++year)
+           .chars()
+           .distinct()
+           .count() != 4) ;
+      return year;
   }
 }
