@@ -13,19 +13,8 @@ Examples
 
 public class BackspacesInString {
   public String cleanString(String s) {
-    StringBuilder sb = new StringBuilder(s);
-    int index = 0;
-    while(sb.toString().contains("#")) {
-      if (sb.charAt(index) == '#'){
-        sb.deleteCharAt(index);
-        if (index - 1 >= 0) {
-          sb.deleteCharAt(index - 1);
-          index--;
-        }
-      } else {
-        index++;
-      }
-    }
-    return sb.toString();
+    while (s.matches(".*#.*")) 
+      s = s.replaceFirst(".?#", "");
+    return s;
   }
 }
