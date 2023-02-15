@@ -20,10 +20,8 @@ public class Kata {
     
     int oddIndex = 0;
     for (int index = 0; index < array.length; index++) {
-      if (array[index] % 2 == 1) {
-        array[index] = odd[oddIndex];
-        oddIndex++;
-      }
+      if (array[index] % 2 == 1)
+        array[index] = odd[oddIndex++];
     }
     return array;
   }
