@@ -19,33 +19,17 @@ import java.util.*;
 
 public class Solution {
   public static int[] sortByFrequency(int[] array) {
-    LinkedHashMap<Integer, Long> numbersWithCount = 
+    Map<Integer, Long> numbersWithCount =
       Arrays.stream(array)
       .boxed()
       .collect(Collectors.groupingBy(Function.identity(), 
-                                     Collectors.counting()))
-      .entrySet()
-      .stream()
-      .sorted(Map.Entry.<Integer, Long>comparingByValue(Comparator.reverseOrder())
-              .thenComparing(Map.Entry.comparingByKey()))
-      .collect(Collectors.toMap(Map.Entry::getKey, 
-                                Map.Entry::getValue,
-                                (e1, e2) -> e2, 
-                                LinkedHashMap::new));
+                                     Collectors.counting()));
     
-    int[] sorted = new int[array.length];
-    int index = 0;
-
-    for (int i = 0; i < numbersWithCount.size(); i++) {
-      String numberWithCount = String.valueOf(numbersWithCount
-                                            .entrySet()
-                                            .toArray()[i]);
-      int number = Integer.parseInt(numberWithCount.substring(0, numberWithCount.indexOf("=")));
-      int count = Integer.parseInt(numberWithCount.substring(numberWithCount.indexOf("=") + 1));
-      
-      while (count-- > 0)
-        sorted[index++] = number;
-    }
-    return sorted;  
+    return Arrays.stream(array)
+      .boxed()
+      .sorted(Comparator.<Integer, Long>comparing(numbersWithCount::get).reversed()
+             .thenComparing(Comparator.naturalOrder()))
+      .mapToInt(Integer::intValue)
+      .toArray();
   }
 }
