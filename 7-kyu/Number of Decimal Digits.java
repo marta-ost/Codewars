@@ -9,7 +9,6 @@ import java.util.Arrays;
 
 public class DecTools {
   public static int Digits(long n) {
-    return (int) Arrays.stream(String.valueOf(n).split(""))
-      .count();
-  }
+    return String.valueOf(n).length();
+    }
 }
