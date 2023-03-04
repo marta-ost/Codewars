@@ -21,9 +21,6 @@ public class Dinglemouse {
   }
   
   public String getFullName() { 
-    return firstName.isEmpty() && lastName.isEmpty() ? "" :
-    firstName.isEmpty() ? lastName : 
-    lastName.isEmpty() ? firstName : 
-    firstName + " " + lastName;
+    return (firstName + " " + lastName).trim();
   }
 }
