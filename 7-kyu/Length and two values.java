@@ -9,14 +9,13 @@ Examples
 Good luck!
 */
 
+import java.util.stream.*;
+
 public class Kata {
   public static String[] alternate(int n, String firstValue, String secondValue) {
-    String[] array = new String[n];
-    for (int i = 0; i < n; i += 2) {
-      array[i] = firstValue;
-      if (i + 1 < n)
-        array[i + 1] = secondValue;
-    }
-    return array;
+    return IntStream
+      .range(0, n)
+      .mapToObj(i -> i % 2 > 0 ? secondValue : firstValue)
+      .toArray(String[]::new);
   }
 }
