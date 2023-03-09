@@ -21,12 +21,8 @@ public class BasicEncrypt {
     
     StringBuilder encryptedText = new StringBuilder();
     
-    for (int i = 0; i < text.length(); i++) {
-      char currentChar = text.charAt(i);
-      int encryptedCharValue = currentChar + rule;
-      while (encryptedCharValue >= ASCII_TABLE_LENGTH)
-        encryptedCharValue -= ASCII_TABLE_LENGTH;
-      char encryptedChar = (char) encryptedCharValue;
+    for (char currentChar : text.toCharArray()) {
+      char encryptedChar = (char) ((currentChar + rule) % ASCII_TABLE_LENGTH);
       encryptedText.append(encryptedChar);
     }
     
