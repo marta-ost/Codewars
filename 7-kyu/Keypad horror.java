@@ -22,28 +22,13 @@ Notes:
 You get a string with numbers only
 */
 
-import java.util.Arrays;
+import java.util.stream.*;
 
 public class Bud {
   public static String computerToPhone(String number){
-    if (number.isEmpty())
-      return "";
-    
-    int[] digits = Arrays.stream(number.split(""))
-      .mapToInt(digit -> Integer.parseInt(digit))
-      .toArray();
-    
-    StringBuilder converted = new StringBuilder();
-    
-    for (int i = 0; i < digits.length; i++) {
-      if (digits[i] >= 7 && digits[i] <= 9)
-        converted.append(digits[i] - 6);
-      else if (digits[i] >= 1 && digits[i] <= 3)
-        converted.append(digits[i] + 6);
-      else 
-        converted.append(digits[i]);
-    }
-    
-    return converted.toString();
+    return number
+      .chars()
+      .mapToObj(c -> String.valueOf("0789456123".indexOf(c)))
+      .collect(Collectors.joining());
   }
 }
