@@ -26,12 +26,8 @@ import java.util.HashMap;
 
 public class Kata {
   public static HashMap <String, String> getStatus(boolean isBusy) {    
-    return isBusy ? 
-      new HashMap<>(){{
-        put("status", "busy");
-      }} : 
-      new HashMap<>(){{ 
-        put("status","available"); 
+    return new HashMap<>(){{
+        put("status", isBusy ? "busy" : "available");
       }};
   }
 }
