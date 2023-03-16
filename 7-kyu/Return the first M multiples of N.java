@@ -14,7 +14,7 @@ import java.util.stream.*;
 
 public class Kata {
   public static int[] multiples(int multiples, int number) {
-    return IntStream.range(1, multiples + 1)
+    return IntStream.rangeClosed(1, multiples)
       .map(i -> i * number)
       .toArray();
   }
