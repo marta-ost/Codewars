@@ -11,10 +11,6 @@ Examples
 
 public class Kata {
   public static String stringMerge(String s1, String s2, char letter) { 
-    StringBuilder merged = new StringBuilder();
-    merged.append(s1.substring(0, s1.indexOf(letter)))
-      .append(s2.substring(s2.indexOf(letter)));
-    
-    return merged.toString();
+    return s1.substring(0, s1.indexOf(letter)) + s2.substring(s2.indexOf(letter));
   }
 }
