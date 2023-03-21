@@ -10,13 +10,8 @@ Details
 You will be given a string of numbers and letters mixed up, you have to return all the numbers in that string in the order they occur.
 */
 
-import java.util.stream.*;
-import java.util.Arrays;
-
 public class Kata {
   public static long filterString(final String value) {
-    return Long.parseLong(Arrays.stream(value.split(""))
-      .filter(i -> i.matches("[0-9]"))
-      .collect(Collectors.joining("")));
+    return Long.parseLong(value.replaceAll("[a-zA-Z]", ""));
   }
 }
