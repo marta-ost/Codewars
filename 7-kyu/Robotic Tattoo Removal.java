@@ -44,16 +44,17 @@ Your task is to create a function for the robot function that will zap away the 
 ]
 */
 
+import java.util.Arrays;
+
 public class RoboticTattooRemoval {
   public static String[][] robot(String[][] skinScan) {
     final String TATTOOED = "X";
     final String ZAPPED = "*";
     
-    for (int i = 0; i < skinScan.length; i++)
-      for (int j = 0; j < skinScan[i].length; j++)
-        if (skinScan[i][j].equals(TATTOOED))
-          skinScan[i][j] = ZAPPED;
-    
-    return skinScan;
+    return Arrays.stream(skinScan)
+      .map(i -> Arrays.stream(i)
+                .map(j -> j.equals(TATTOOED) ? ZAPPED : j)
+                .toArray(String[]::new)) 
+      .toArray(String[][]::new);
   }
 }
