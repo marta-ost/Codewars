@@ -9,13 +9,8 @@ Write a function to find if a number is lucky or not. If the sum of all digits i
 Function will return true for lucky numbers and false for others.
 */
 
-import java.util.Arrays;
-
 public class LuckyNumber {
   public static boolean isLucky(long n) {
-    int sumOfDigits = Arrays.stream(String.valueOf(n).split(""))
-      .mapToInt(Integer::parseInt)
-      .sum();
-    return sumOfDigits == 0 || sumOfDigits % 9 == 0;
+    return n % 9 == 0;
   }
 }
