@@ -13,38 +13,16 @@ For k = 5 and elements = [1, 3, 5, 7, 6, 4, 2], the output should be splitByValu
 S: codefights.com
 */
 
+import java.util.stream.*;
 import java.util.Arrays;
 
 public class Solution {
   int[] splitByValue(int k, int[] elements) {
-    int smallerCount = (int) Arrays.stream(elements)
-      .filter(elem -> elem < k)
-      .count();
-    int biggerCount = elements.length - smallerCount;
-    
-    int[] smaller = new int[smallerCount];
-    int[] bigger = new int[biggerCount];
-    
-    int smallerIndex = 0;
-    int biggerIndex = 0;
-    
-    for (int i = 0; i < elements.length; i++) {
-      if (elements[i] < k)
-        smaller[smallerIndex++] = elements[i];
-      else
-        bigger[biggerIndex++] = elements[i];
-    }
-    
-    int[] rearranged = new int[elements.length];
-    
-    for (int i = 0; i < smaller.length; i++)
-      rearranged[i] = smaller[i];
-    
-    biggerIndex = 0;
-    
-    for (int i = smaller.length; i < rearranged.length; i++)
-      rearranged[i] = bigger[biggerIndex++];
-    
-    return rearranged;
+     return IntStream
+       .concat(Arrays.stream(elements)
+               .filter(elem -> elem < k), 
+               Arrays.stream(elements)
+               .filter(elem -> elem >= k))
+       .toArray();
   }
 }
