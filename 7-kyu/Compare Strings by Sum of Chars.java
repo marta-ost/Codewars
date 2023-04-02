@@ -23,10 +23,7 @@ public class Kata {
   }
   
   public static int findSumOfChars(String s) {
-    return s == null || s.toUpperCase()
-        .chars()
-        .filter(ch -> ch >= 65 && ch <= 90)
-        .count() != s.length() ? 0 
+    return s == null || !s.matches("[A-Za-z]+") ? 0
       : s.toUpperCase().chars().sum();
   }
 }
