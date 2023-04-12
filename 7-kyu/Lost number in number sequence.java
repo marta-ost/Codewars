@@ -13,22 +13,10 @@ If no number was deleted from the starting array, your function should return th
 Note: N may be 1 or less (in the latter case, the first array will be []).
 */
 
-import java.util.Arrays;
+import java.util.stream.*;
 
 public class Kata {
   public static int findDeletedNumber(int[] arr, int[] mixedArr) {
-    if (mixedArr.length == arr.length)
-      return 0;
-    
-    if (arr.length <= 1)
-      return arr.length;
-    
-    Arrays.sort(mixedArr);
-
-    for (int i = 0; i < mixedArr.length; i++)
-      if (arr[i] != mixedArr[i])
-        return arr[i];
-    
-    return arr[arr.length - 1];
+    return IntStream.of(arr).sum() - IntStream.of(mixedArr).sum(); 
   }
 }
