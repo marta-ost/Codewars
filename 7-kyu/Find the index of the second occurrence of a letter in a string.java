@@ -12,15 +12,6 @@ Good luck ;) And don't forget to rate this Kata if you liked it.
 
 public class SecondOcurrence {
   public static int second_symbol(String str, char c) {
-    int occurence = 0;
-    
-    for (int i = 0; i < str.length(); i++) {
-      if (str.charAt(i) == c)
-        occurence++;
-      if (occurence == 2)
-        return i;
-    }
-    
-    return -1;
+    return str.indexOf(c, str.indexOf(c) + 1);
   }
 }
