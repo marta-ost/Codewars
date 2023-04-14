@@ -21,7 +21,6 @@ public class MostDigits {
   }
   
   public static int findNumberLength(int number) {
-    return number >= 0 ? String.valueOf(number).length() 
-        : String.valueOf(number).length() - 1;
+    return String.valueOf(Math.abs(number)).length();
   }
 }
