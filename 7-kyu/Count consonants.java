@@ -10,8 +10,8 @@ import java.util.Arrays;
 public class Consonants {
   public static int getCount(String str) {
     return (int) Arrays
-      .stream(str.split(""))
-      .filter(letter -> letter.matches("[A-Za-z]"))
+      .stream(str.toLowerCase().split(""))
+      .filter(letter -> letter.matches("[a-z]"))
       .filter(letter -> letter.matches("[^aeiou]"))
       .count();
   }
