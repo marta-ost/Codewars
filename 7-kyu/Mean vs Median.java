@@ -17,8 +17,10 @@ public class Solution {
   public static String meanVsMedian(int[] numbers) {
     Arrays.sort(numbers);
     
-    int mean = Arrays.stream(numbers).sum() / numbers.length;
-    int median = numbers[numbers.length / 2];
+    double mean = Arrays.stream(numbers)
+      .average()
+      .getAsDouble();
+    double median = numbers[numbers.length / 2];
     
     return mean > median ? "mean" 
       : median > mean ? "median"
