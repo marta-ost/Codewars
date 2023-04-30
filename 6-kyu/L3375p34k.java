@@ -30,8 +30,7 @@ public class Leetspeak extends Encoder{
       .replaceAll("[Aa]", "4")
       .replaceAll("[Ee]", "3")
       .replaceAll("[Ll]", "1")
-      .replace("m", "/^^\\")
-      .replace("M", "/^^\\")
+      .replaceAll("[Mm]", "/^^\\\\")
       .replaceAll("[Oo]", "0")
       .replaceAll("[Uu]", "(_)");
   }
