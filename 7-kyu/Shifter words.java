@@ -17,14 +17,10 @@ import java.util.Arrays;
 
 public class Shifter {
   public static int count(String st) {
-    return st.isEmpty() ? 0 
-      : (int) Arrays
-        .stream(st.split(" "))
+    return (int) Arrays
+      .stream(st.split(" "))
       .distinct()
-      .filter(word -> Arrays
-              .stream(word.split(""))
-              .filter(letter -> letter.matches("[HINOSXZMW]"))
-              .count() == word.length())
+      .filter(word -> word.matches("[HIMNOSWXZ]+"))
       .count();
   }
 }
