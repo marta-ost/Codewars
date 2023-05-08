@@ -18,13 +18,9 @@ s="aaaxbbbbyyhwawiwjjjwwm"
 printer_error(s) => "8/22"
 */
 
-import java.util.Arrays;
-
 public class Printer {
   public static String printerError(String s) {
-    return Arrays
-      .stream(s.split(""))
-      .filter(letter -> letter.matches("[n-z]"))
-      .count() + "/" + s.length();
+    return s.replaceAll("[a-m]", "")
+      .length() + "/" + s.length();
   }
 }
