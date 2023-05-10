@@ -15,6 +15,6 @@ public class TriangularNumbers {
   public static BigInteger numberOfDots(BigInteger n) {
     final BigInteger TWO = new BigInteger("2");
     
-    return n.multiply(n.add(BigInteger.ONE)).divide(TWO);
+    return n.add(BigInteger.ONE).multiply(n).divide(TWO);
   }
 }
