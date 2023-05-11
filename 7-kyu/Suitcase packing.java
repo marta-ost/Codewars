@@ -17,7 +17,6 @@ fit_in(1,2,1,2) should return False
 
 public class MrSquare {
   public static Boolean fit_in(int a, int b, int m, int n) {
-    return (a + b <= n && Math.max(a, b) <= m) ||
-           (a + b <= m && Math.max(a, b) <= n);
+    return a + b <= Math.max(m, n) && Math.max(a, b) <= Math.min(m, n);
   }
 }
