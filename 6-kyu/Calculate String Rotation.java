@@ -17,23 +17,7 @@ Examples:
 
 public class CalculateRotation {
   static int shiftedDiff(String first, String second) {
-    if (first.equals(second))
-      return 0;
-    
-    String firstPart = "";
-    String secondPart = "";
-    int rotation = 0;
-    
-    for (int index = 0; index < first.length(); index++) {
-      secondPart = first.substring(index);
-      if (second.indexOf(secondPart) == -1)
-        continue;
-      
-      firstPart = first.substring(0, index);
-      rotation = first.length() - index;
-      break;
-    }
-    
-    return (secondPart + firstPart).equals(second) ? rotation : -1;
+    return first.length() != second.length() ? -1 
+      : (second + second).indexOf(first);
   }
 }
