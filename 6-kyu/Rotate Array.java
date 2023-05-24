@@ -31,27 +31,11 @@ n = 11       =>    [5, 1, 2, 3, 4]
 n = 12478    =>    [3, 4, 5, 1, 2]
 */
 
-import java.util.stream.*;
+import java.util.*;
 
 public class Rotator {
 	public Object[] rotate(Object[] data, int n) {
-    int rotation = n % 5;
-    
-    return rotation >= 0 ?
-      IntStream
-      .range(0, data.length)
-      .mapToObj(index -> 
-          index - rotation < 0
-           ? (Object) data[data.length + index - rotation] 
-           : (Object) data[index - rotation])
-      .toArray(Object[]::new)
-                
-      : IntStream
-      .range(0, data.length)
-      .mapToObj(index -> 
-           index + Math.abs(rotation) >= data.length
-           ? (Object) data[Math.abs(data.length - index + rotation)]
-           : (Object) data[index + Math.abs(rotation)])
-      .toArray(Object[]::new);
+    Collections.rotate(Arrays.asList(data), n);
+    return data;
   }
 }
