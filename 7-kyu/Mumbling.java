@@ -16,8 +16,8 @@ public class Accumul {
   public static String accum(String string) {
     return IntStream
       .range(0, string.length())
-      .mapToObj(i -> String.valueOf(string.charAt(i)).repeat(i + 1))
-      .map(s -> String.valueOf(s.charAt(0)).toUpperCase() + s.substring(1).toLowerCase())
+      .mapToObj(i -> String.valueOf(string.charAt(i)).toUpperCase()
+                   + String.valueOf(string.charAt(i)).toLowerCase().repeat(i))
       .collect(Collectors.joining("-"));
   }
 }
