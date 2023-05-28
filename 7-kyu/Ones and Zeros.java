@@ -22,7 +22,7 @@ import java.util.List;
 
 public class BinaryArrayToNumber {
   public static int ConvertBinaryArrayToInt(List<Integer> binary) {
-    String binaryNumber = binary.toString().replace(", ", "").replace("[", "").replace("]", "");
+    String binaryNumber = binary.toString().replaceAll("\\D", "");
     return Integer.parseInt(binaryNumber, 2);
   }
 }
