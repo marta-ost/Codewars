@@ -11,21 +11,13 @@ If given String is empty, return empty String.
 If given String is `null`/`None`/`nil`, return `null`/`None`/`nil`
 */
 
-import java.util.Arrays;
-
 public class WithoutLetterE {
   public static String findE(String str) {
-    if (str == null)
-      return null;
-    if (str.isEmpty())
-      return "";
+    if (str == null || str.isEmpty())
+      return str;
     
-    long count = Arrays
-      .stream(str.split(""))
-      .filter(letter -> letter.toLowerCase().equals("e"))
-      .count();
+    int count = str.replaceAll("[^eE]", "").length();
     
-    return count == 0 ? "There is no \"e\"." 
-      : String.valueOf(count);
+    return count == 0 ? "There is no \"e\"." : String.valueOf(count);
   }
 }
