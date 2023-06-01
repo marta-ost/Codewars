@@ -9,11 +9,9 @@ import java.util.Arrays;
 
 class Solution {
   public static int solve(String s) {
-    String vowels = s.replaceAll("[^aeiou]", " ");
-    String[] vowelsGroups = vowels.split(" ");
-    
-    return Arrays.stream(vowelsGroups)
-      .mapToInt(group -> group.length())
+    return Arrays
+      .stream(s.split("[^aeiou]"))
+      .mapToInt(String::length)
       .max()
       .getAsInt();
   }
