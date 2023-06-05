@@ -19,37 +19,14 @@ if the length argument is not passed or is zero, you sort all items to the right
 */
 
 import java.util.*;
-import java.util.stream.*;
 
 class SectionalArray {
   static int[] sort(final int[] array, final int start, final int... length) {
-    IntStream beforeStart = IntStream
-      .range(0, start)
-      .map(i -> array[i]);
-    
-    if (length.length == 0 || length[0] == 0) {  
-      IntStream sorted = IntStream
-        .range(start, array.length)
-        .map(i -> array[i])
-        .sorted();
-      
-      return IntStream
-        .concat(beforeStart, sorted)
-        .toArray();
-    } else {
-      IntStream sorted = IntStream
-        .range(start, length[0] + start < array.length 
-             ? length[0] + start : array.length)
-        .map(i -> array[i])
-        .sorted();
-    
-      IntStream remaining = IntStream
-        .range(length[0] + start, array.length)
-        .map(i -> array[i]);
-      
-      return IntStream
-        .concat(IntStream.concat(beforeStart, sorted), remaining)
-        .toArray();  
-    }
+    if (length.length == 0)
+      Arrays.sort(array, start, array.length);
+    else
+      Arrays.sort(array, start, length[0] + start < array.length 
+                                ? length[0] + start : array.length);
+    return array;
   }
 }
