@@ -22,20 +22,16 @@ All strings are unicode strings.
 There are no grammatical exceptions in the tests.
 */
 
-import java.util.Arrays;
-
 public class Kata {
   public static String dative(String word) {
-    String frontVowels = "eéiíöőüű";
-    String backVowels = "aáoóuú";
+    final String NEK = "0";
+    final String NAK = "1";
 
-    String[] vowels = Arrays.stream(word.split(""))
-      .filter(s -> frontVowels.contains(s) || backVowels.contains(s))
-      .toArray(String[]::new);
+    String vowelsMarked = word
+      .replaceAll("[eéiíöőüű]", NEK)
+      .replaceAll("[aáoóuú]", NAK);;
     
-    String lastVowel = vowels[vowels.length - 1];
-    
-    return frontVowels.contains(lastVowel) ? word + "nek" 
-      : word + "nak";
+    return vowelsMarked.lastIndexOf(NEK) > vowelsMarked.lastIndexOf(NAK) 
+      ? word + "nek" : word + "nak";
   }
 }
