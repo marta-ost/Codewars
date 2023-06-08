@@ -20,8 +20,6 @@ wo rd
 
 public class IdentifierChecker {
   public static boolean isValid(String idn) {
-    return idn.length() >= 1 
-      && idn.substring(0, 1).matches("[a-zA-Z_$]") 
-      && idn.substring(1).matches("[a-zA-Z0-9_$]+");
+    return idn.matches("[a-zA-Z_$]+[a-zA-Z0-9_$]+");
   }
 }
