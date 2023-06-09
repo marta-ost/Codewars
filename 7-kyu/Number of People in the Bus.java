@@ -14,17 +14,12 @@ The second value in the first pair in the array is 0, since the bus is empty in 
 */
 
 import java.util.ArrayList;
-import java.util.stream.*;
 
 class Metro {
   public static int countPassengers(ArrayList<int[]> stops) {
     return stops
       .stream()
-      .map(array -> IntStream
-          .rangeClosed(0, 1)
-          .map(i -> i == 0 ? array[0] : -array[1])
-          .sum())
-      .mapToInt(Integer::intValue)
+      .mapToInt(array -> array[0] - array[1])
       .sum();
   }
 }
