@@ -26,9 +26,6 @@ Constraints: 0 ≤ firstNumber ≤ n - 1
 
 public class CircleOfNumbers {
   public static int circleOfNumbers(int n, int firstNumber) {
-    int midPoint = (n - 1) / 2 + 1;
-    
-    return firstNumber >= midPoint ? firstNumber - midPoint 
-      : firstNumber + midPoint;
+    return (firstNumber + n / 2) % n;
   }
 }
