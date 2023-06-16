@@ -14,10 +14,10 @@ Calculate number of day when the snail will reach the top of the column.
 public class Kata {
   public static int snail(int column, int day, int night) {
     int days = 1;
-    int distance = day;
+    column -= day;
     
-    while (distance < column) {
-      distance += day - night;
+    while (column > 0) {
+      column -= day - night;
       days++;
     }
     
