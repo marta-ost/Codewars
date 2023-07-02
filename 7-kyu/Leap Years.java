@@ -13,11 +13,10 @@ Only valid years (positive integers) will be tested, so you don't have to valida
 Examples can be found in the test fixture.
 */
 
+import java.time.Year;
+
 public class LeapYears {
   public static boolean isLeapYear(int year) {
-    return year % 400 == 0 ? true 
-      : year % 100 == 0 ? false
-      : year % 4 == 0 ? true 
-      : false;
+    return Year.of(year).isLeap();
   }
 }
