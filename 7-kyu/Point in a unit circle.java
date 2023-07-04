@@ -14,6 +14,6 @@ We are using the euclidean metric.
 
 public class Kata {
   public static boolean pointInCircle(double x, double y) {
-    return Math.sqrt(y * y + x * x) < 1;
+    return y * y + x * x < 1;
   }
 }
