@@ -19,19 +19,12 @@ The ribbon and the bow on the present looks like this:
 image
 */
 
-public class WrapPresent {
+import java.util.Arrays;
 
-	public static int wrap(int height, int width, int length) {
-    int heightWidth = height * width;
-    int widthLength = width * length;
-    int lengthHeight = length * height;
-    
-    return heightWidth >= widthLength && heightWidth >= lengthHeight ? getRibbonLength(length, height, width) :
-           widthLength >= heightWidth && widthLength >= lengthHeight ? getRibbonLength(height, length, width) :
-           getRibbonLength(width, height, length);
-  }
-  
-  private static int getRibbonLength(int height, int a, int b) {
-    return 4 * height + 2 * (a + b) + 20;
+public class WrapPresent {
+  public static int wrap(int height, int width, int length) {
+    int[] values = {height, width, length};
+    Arrays.sort(values);
+    return 4 * values[0] + 2 * (values[1] + values[2]) + 20;
   }
 }
