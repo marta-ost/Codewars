@@ -18,8 +18,6 @@ public class Divisible {
   public static boolean isDivisible(int... args) {
     return IntStream
       .range(1, args.length)
-      .map(i -> args[i])
-      .filter(divisor -> args[0] % divisor == 0)
-      .count() == args.length - 1;
+      .allMatch(i -> args[0] % args[i] == 0);
   }
 }
