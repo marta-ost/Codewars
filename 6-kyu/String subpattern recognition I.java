@@ -17,17 +17,6 @@ If you liked it, go for the next kata of the series!
 
 public class Kata {
   public static boolean hasSubpattern(String str) {
-    for (int i = 1; i < str.length(); i++) {
-      String substr = str.substring(0, i);
-      
-      if (str.length() % substr.length() == 0) {
-        int repetitions = str.length() / substr.length();
-        
-        if (substr.repeat(repetitions).equals(str))
-          return true;
-      } 
-    }
-
-    return false;
+    return (str + str).indexOf(str, 1) != str.length();
   }
 }
