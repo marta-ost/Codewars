@@ -17,8 +17,8 @@ public class Solution {
     int[] indexes = new int[2];
     
     for (int i = 0; i < numbers.length; i++) {
-      for (int j = 0; j < numbers.length; j++) {
-        if (i != j && numbers[i] + numbers[j] == target) {
+      for (int j = i + 1; j < numbers.length; j++) {
+        if (numbers[i] + numbers[j] == target) {
           indexes[0] = i;
           indexes[1] = j;
         }
