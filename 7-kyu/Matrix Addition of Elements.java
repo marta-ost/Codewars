@@ -19,14 +19,13 @@ SumOfElements({{1,0},{0,1}}) should return 2.
 SumOfElements({{7,9},{3,6}}) should return 25.
 */
 
+import java.util.Arrays;
+
 public class Sid {
-  public static int sumOfElements(int matrix[][]) {
-    int sum = 0;
-    
-    for (int[] array : matrix)
-      for (int elem : array) 
-        sum += elem;
-        
-    return sum;
-  }    
+    public static int sumOfElements(int matrix[][]) {
+      return Arrays
+        .stream(matrix)
+        .flatMapToInt(Arrays::stream)
+        .sum();
+    }    
 }
