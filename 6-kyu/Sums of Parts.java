@@ -35,13 +35,8 @@ class SumParts {
   public static int[] sumParts(int[] ls) {
     int[] result = new int[ls.length + 1];
     
-    result[result.length - 1] = 0;
-    int previous = 0;
-    
-    for (int i = result.length - 2; i >= 0; i--) {
-      result[i] = previous + ls[i];
-      previous = result[i];
-    }
+    for (int i = result.length - 2; i >= 0; i--)
+      result[i] = result[i + 1] + ls[i];
     
     return result;
   }
