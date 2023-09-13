@@ -37,10 +37,8 @@ public class Bowling {
                   "  2 3  \n" + 
                   "   1   ";
     
-    for (int pin : arr) {
-      int index = pins.indexOf(String.valueOf(pin % 10));
-      pins = pins.substring(0, index) + " " + pins.substring(index + 1);
-    }
+    for (int pin : arr)
+      pins = pins.replace(String.valueOf(pin % 10), " ");
 
    return pins.replaceAll("[0-9]", "I");
   }
