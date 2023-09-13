@@ -32,19 +32,16 @@ Have fun!
 
 public class Bowling {
   public String bowlingPins(int[] arr) {
-    String pins = "7s8s9s0\n" + 
-                  "s4s5s6s\n" + 
-                  "ss2s3ss\n" + 
-                  "sss1sss";
+    String pins = "7 8 9 0\n" + 
+                  " 4 5 6 \n" + 
+                  "  2 3  \n" + 
+                  "   1   ";
     
     for (int pin : arr) {
-      if (pin == 10)
-        pin = 0;
-      
-      int index = pins.indexOf(String.valueOf(pin));
-      pins = pins.substring(0, index) + "s" + pins.substring(index + 1);
+      int index = pins.indexOf(String.valueOf(pin % 10));
+      pins = pins.substring(0, index) + " " + pins.substring(index + 1);
     }
 
-   return pins.replaceAll("[0-9]", "I").replace("s", " ");
+   return pins.replaceAll("[0-9]", "I");
   }
 }
