@@ -29,14 +29,13 @@ pattern(10): should return the following:
 1*********10
 */
 
+import java.util.stream.*;
+
 public class Kata {
   public static String pattern(int n) {
-    StringBuilder ladder = new StringBuilder();
-    ladder.append("1").append("\n");
-    
-    for (int i = 2; i <= n; i++)
-      ladder.append("1").append("*".repeat(i - 1)).append(i).append("\n");
-    
-    return ladder.toString().trim();
+    return IntStream
+      .rangeClosed(1, n)
+      .mapToObj(i -> "1" + "*".repeat(i - 1) + (i == 1 ? "" : i))
+      .collect(Collectors.joining("\n"));
   }
 }
