@@ -11,14 +11,16 @@ All numerators and denominators will be positive integers.
 Note: This is an introductory Kata for a series... coming soon!
 */
 
+import java.math.BigInteger;
+
 public class Reduce {
   public static int[] myFraction(int[] fractions) {
-    int divisor = 1;
+    BigInteger firstValue = BigInteger.valueOf(fractions[0]);
+    BigInteger secondValue = BigInteger.valueOf(fractions[1]);
     
-    for (int i = 1; i <= fractions[0]; i++)
-      if (fractions[0] % i == 0 && fractions[1] % i == 0)
-        divisor = i;
-    
+    BigInteger gcd = firstValue.gcd(secondValue);
+    int divisor = gcd.intValue();
+
     return new int[]{fractions[0] / divisor, fractions[1] / divisor};
   }
 }
