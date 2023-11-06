@@ -25,15 +25,8 @@ import java.time.*;
 
 public class Day {
   public String countDays(Date d) {
-    LocalDateTime now = LocalDateTime.now();
-    
-    LocalDateTime date = d
-      .toInstant()
-      .atZone(ZoneId.systemDefault())
-      .toLocalDateTime();
-    
     long daysBetween = Duration
-      .between(now, date)
+      .between(Instant.now(), d.toInstant())
       .toDays();
     
     return daysBetween < -1 ? "The day is in the past!"
