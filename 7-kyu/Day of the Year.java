@@ -17,8 +17,8 @@ import java.time.*;
 
 public class DateToInt {
   public static int toDayOfYear(int[] date) {
-    LocalDate localDate = LocalDate.of(date[2], date[1], date[0]);
-    
-    return localDate.getDayOfYear();
+    return LocalDate
+      .of(date[2], date[1], date[0])
+      .getDayOfYear();
   }
 }
