@@ -42,16 +42,11 @@ import java.util.*;
 
 public class Solution {
   public static long maxProduct(int[] numbers, int sub_size) {
-    int[] sorted = Arrays
+    return Arrays
       .stream(numbers)
-      .boxed()
-      .sorted(Collections.reverseOrder())
-      .mapToInt(Integer::intValue)
-      .toArray();
-    
-    return LongStream
-      .range(0, sub_size)
-      .map(l -> sorted[(int) l])
-      .reduce(1, (a, b) -> a * b);  
+      .sorted()
+      .skip(numbers.length - sub_size)
+      .mapToLong(Long::valueOf)
+      .reduce(1, (a, b) -> a * b); 
   }
 }
