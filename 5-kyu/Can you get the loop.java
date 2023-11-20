@@ -25,20 +25,12 @@ public class LoopInspector {
   public int loopSize(Node node) {
     List<Node> nodes = new ArrayList<>();
     Node currentNode = node;
-    Node lastNode = null;
     
-    while (lastNode == null) {
-      if (!nodes.contains(currentNode)) 
-        nodes.add(currentNode);
-      else
-        lastNode = currentNode;
-      
+    while (!nodes.contains(currentNode)) {
+      nodes.add(currentNode);
       currentNode = currentNode.getNext();
     }
-
-    Node firstNode = lastNode.getNext();
     
-    return firstNode == lastNode ? 1 
-       : nodes.size() - (nodes.indexOf(firstNode) - 1);
+    return nodes.size() - nodes.indexOf(currentNode);
   }
 }
