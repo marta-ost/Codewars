@@ -9,35 +9,16 @@ Example (Input --> Output ):
 
 class Planet {
   static String getPlanetName(int id) {
-    String name = "";
-    
-    switch (id) {
-      case 1:
-        name = "Mercury";
-        break;
-      case 2:
-        name = "Venus";
-        break;
-      case 3:
-        name = "Earth";
-        break;
-      case 4:
-        name = "Mars";
-        break;
-      case 5:
-        name = "Jupiter";
-        break;
-      case 6:
-        name = "Saturn";
-        break;
-      case 7:
-        name = "Uranus";
-        break;
-      case 8:
-        name = "Neptune";
-        break;
-    }
-    
-    return name;
+    return switch (id) {
+      case 1 -> "Mercury";
+      case 2 -> "Venus";
+      case 3 -> "Earth";
+      case 4 -> "Mars";
+      case 5 -> "Jupiter";
+      case 6 -> "Saturn";
+      case 7 -> "Uranus";
+      case 8 -> "Neptune";
+      default -> "";
+    };
   }
 }
