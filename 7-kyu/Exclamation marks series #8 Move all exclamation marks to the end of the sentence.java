@@ -16,7 +16,6 @@ Examples
 
 public class Kata {
   public static String remove(String s) {
-    int amount = s.replaceAll("[^!]", "").length();
-    return s.replace("!", "") + "!".repeat(amount);
+    return s.replace("!", "") + s.replaceAll("[^!]", "");
   }
 }
