@@ -19,6 +19,6 @@ Since we cannot define keywords in Javascript (well, at least I don't know how t
 
 public class XOR {
   public static boolean xor(boolean a, boolean b) {
-    return (a && !b) || (!a && b);
+    return a != b;
   }
 }
