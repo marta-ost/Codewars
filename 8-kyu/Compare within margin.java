@@ -35,7 +35,7 @@ This is because the distance between a and b is greater than 0, and a is less th
 
 public class Solution {
   public static int closeCompare(double a, double b) {
-    return a < b ? -1 : a > b ? 1 : 0;
+    return closeCompare(a, b, 0);
   }
   
   public static int closeCompare(double a, double b, double margin) {
