@@ -49,8 +49,6 @@ public class Solution {
     String powerStr = String.valueOf((int) Math.pow(number, 2));
     String numberStr = String.valueOf(number);
     
-    String end = powerStr.substring(powerStr.length() - numberStr.length());
-    
-    return end.equals(numberStr) ? "Automorphic" : "Not!!";
+    return powerStr.endsWith(numberStr) ? "Automorphic" : "Not!!";
   }
 }
