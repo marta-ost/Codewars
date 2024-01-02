@@ -62,16 +62,6 @@ The number of days that it will take for the plant to reach/pass desiredHeight (
 
 public class SimpleFun {
   public static int growingPlant(int upSpeed, int downSpeed, int desiredHeight) {
-    int days = 0;
-    int height = 0;
-    
-    while (height < desiredHeight) {
-      days++;
-      height += upSpeed;
-      if (height >= desiredHeight) break;
-      height -= downSpeed;
-    }
-    
-    return days;
+    return desiredHeight <= upSpeed ? 1 : (int) Math.ceil((double) (desiredHeight - downSpeed) / (upSpeed - downSpeed));
   }
 }
