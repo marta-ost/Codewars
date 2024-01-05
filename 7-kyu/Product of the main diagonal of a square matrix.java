@@ -14,11 +14,9 @@ http://en.wikipedia.org/wiki/Main_diagonal
 public class DiagonalProduct {
   public static int ReturnProduct(int[][] matrix) {
     int product = 1;
-    int i = 0;
-    int j = 0;
     
-    while (i < matrix.length && j < matrix[0].length)
-      product *= matrix[i++][j++];
+    for (int i = 0; i < Math.min(matrix.length, matrix[0].length); i++)
+      product *= matrix[i][i];
     
     return product;
   }
