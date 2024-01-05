@@ -11,13 +11,12 @@ Examples:
 http://en.wikipedia.org/wiki/Main_diagonal
 */
 
+import java.util.stream.*;
+
 public class DiagonalProduct {
   public static int ReturnProduct(int[][] matrix) {
-    int product = 1;
-    
-    for (int i = 0; i < Math.min(matrix.length, matrix[0].length); i++)
-      product *= matrix[i][i];
-    
-    return product;
+    return IntStream
+      .range(0, matrix.length)
+      .reduce(1, (subtotal, i) -> subtotal * matrix[i][i]);
   }
 }
