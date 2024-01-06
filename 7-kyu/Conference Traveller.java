@@ -38,7 +38,6 @@ public class Kata {
               .stream(citiesVisited)
               .anyMatch(city::equals))
       .findFirst()
-      .map(Object::toString)
       .orElse("No worthwhile conferences this year!");
   }
 }
