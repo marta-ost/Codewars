@@ -29,18 +29,18 @@ import java.util.stream.*;
 
 public class Solution {
   public static String diagonal(int[][] matrix) {
-    int principalSum = IntStream
+    int principalDiagonalSum = IntStream
       .range(0, findSmallerLength(matrix))
       .map(i -> matrix[i][i])
       .sum();
     
-    int diagonalSum = IntStream
+    int secondaryDiagonalSum = IntStream
       .range(0, findSmallerLength(matrix))
       .map(i -> matrix[i][matrix.length - 1 - i])
       .sum();
     
-    return principalSum > diagonalSum ? "Principal Diagonal win!" 
-      : principalSum == diagonalSum ? "Draw!"
+    return principalDiagonalSum > secondaryDiagonalSum ? "Principal Diagonal win!" 
+      : principalDiagonalSum == secondaryDiagonalSum ? "Draw!"
       : "Secondary Diagonal win!";
   }
   
