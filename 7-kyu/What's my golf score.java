@@ -15,17 +15,8 @@ Task Overview
 Complete the function which accepts two strings and calculates the golf score of a game. Both strings will be of length 18, and each character in the string will be a number between 1 and 9 inclusive.
 */
 
-import java.util.stream.*;
-
 public class Kata {
   public static int golfScoreCalculator(String parList, String scoreList) {
-    return IntStream
-      .range(0, scoreList.length())
-      .map(i -> getDigitAtIndex(scoreList, i) - getDigitAtIndex(parList, i))
-      .sum();
-  }
-  
-  private static int getDigitAtIndex(String text, int index) {
-    return Integer.parseInt(text.substring(index, index + 1));
+    return scoreList.chars().sum() - parList.chars().sum();
   }
 }
