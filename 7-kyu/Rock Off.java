@@ -32,7 +32,6 @@ public class Solution {
     return (int) IntStream
       .range(0, first.length)
       .map(i -> first[i] > second[i] ? 1 : 0)
-      .filter(i -> i == 1)
-      .count();
+      .sum();
   }
 }
