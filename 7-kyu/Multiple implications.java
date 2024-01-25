@@ -13,15 +13,14 @@ In this kata, we will take that further. Given an array (return false if the arr
 Assume that there will be no more than 8 variables in the array, and the array will contain only boolean values.
 */
 
+import java.util.stream.*;
+
 public class Logic {
   public static Boolean multImplication(boolean[] lst) {
-    if (lst.length == 0) return false;
-    
-    boolean previousAnswer = lst[0];
-    
-    for (int i = 1; i < lst.length; i++) 
-      previousAnswer = !previousAnswer || (previousAnswer && lst[i]); 
-    
-    return previousAnswer;
+    return IntStream
+      .range(0, lst.length)
+      .mapToObj(i -> lst[i])
+      .reduce((p, q) -> !p || (p && q))
+      .orElse(false);
   }
 }
