@@ -20,10 +20,8 @@ import java.util.*;
 
 class ParallelResistors {
   public static double resistance(double... resistors) {   
-    double[] resistorsArray = resistors;
-    
     return 1 / Arrays
-      .stream(resistorsArray)
+      .stream(resistors)
       .map(d -> 1 / d)
       .sum();
   }
