@@ -38,20 +38,14 @@ The number's digits {2 , 3, 3, 5} are in non-Decreasing Order , Note 3 <= 3
 */
 
 import java.util.*;
+import java.util.stream.*;
 
 public class Solution {
   public static boolean tidyNumber(int number) {
-    int[] digits = Arrays
+    return Arrays
       .stream(String.valueOf(number).split(""))
-      .mapToInt(Integer::parseInt)
-      .toArray();
-    
-    boolean nonDecreasing = true;
-  
-    for (int i = 1; i < digits.length; i++)
-      if (digits[i - 1] > digits[i])
-        nonDecreasing = false;
-      
-    return nonDecreasing;
+      .sorted()
+      .collect(Collectors.joining(""))
+      .equals(String.valueOf(number));
   }
 }
