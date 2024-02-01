@@ -55,14 +55,18 @@ public class TheOffice {
     put("pissing about", 25);
   }};
   
-  public static String boredom(Person[] staff) {
-    int teamScore = Arrays
-      .stream(staff)
-      .mapToInt(person -> departmentsWithScores.get(person.department))
-      .sum();
+  public static String boredom(Person[] team) {
+    int teamScore = calculateTeamScore(team);
     
     return teamScore <= 80 ? SENTIMENT_BELOW_EQUAL_80
       : teamScore < 100 ? SENTIMENT_ABOVE_80_BELOW_100
       : SENTIMENT_ABOVE_EQUAL_100;
+  }
+  
+  private static int calculateTeamScore(Person[] team) {
+    return Arrays
+      .stream(team)
+      .mapToInt(person -> departmentsWithScores.get(person.department))
+      .sum();
   }
 }
