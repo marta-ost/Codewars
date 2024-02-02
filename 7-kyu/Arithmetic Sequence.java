@@ -20,14 +20,8 @@ c is the constant added between the terms.
 Remember that first is in the index 0 .. just saying ...
 */
 
-import java.util.stream.*;
-
 public class Sequence {
   public static int nthterm(int first, int n, int c) {
-    return IntStream
-      .rangeClosed(0, n)
-      .map(i -> i == 0 ? first : c)
-      .reduce((a, b) -> a + b)
-      .getAsInt();
+    return first + n * c;
   }
 }
