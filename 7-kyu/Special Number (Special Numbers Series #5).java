@@ -40,6 +40,10 @@ specialNumber(709) ==> return "NOT!!"
 
 public class Solution {
   public static String specialNumber(int number) {
-    return String.valueOf(number).matches("[0-5]+") ? "Special!!" : "NOT!!";
+    return findIfNumberIsSpecial(number) ? "Special!!" : "NOT!!";
+  }
+  
+  private static boolean findIfNumberIsSpecial(int number) {
+    return String.valueOf(number).matches("[0-5]+");
   }
 }
