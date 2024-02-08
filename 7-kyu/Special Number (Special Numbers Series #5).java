@@ -38,23 +38,8 @@ specialNumber(513) ==> return "Special!!"
 specialNumber(709) ==> return "NOT!!"
 */
 
-import java.util.*;
-
 public class Solution {
   public static String specialNumber(int number) {
-    return findIfNumberIsSpecial(number) ? "Special!!" : "NOT!!";
-  }
-  
-  private static boolean findIfNumberIsSpecial(int number) {
-    String[] digits = getDigits(number);
-    
-    return Arrays
-      .stream(digits)
-      .filter(d -> d.matches("[012345]"))
-      .count() == digits.length;
-  }
-  
-  private static String[] getDigits(int number) {
-    return String.valueOf(number).split("");
+    return String.valueOf(number).matches("[0-5]+") ? "Special!!" : "NOT!!";
   }
 }
