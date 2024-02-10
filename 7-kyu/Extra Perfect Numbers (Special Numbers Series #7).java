@@ -37,11 +37,7 @@ public class Solution {
   public static int[] extraPerfect(int number) {
     return IntStream
       .rangeClosed(0, number)
-      .filter(n -> getBinary(n).startsWith("1") && getBinary(n).endsWith("1"))
+      .filter(n -> n % 2 != 0)
       .toArray();
-  }
-  
-  private static String getBinary(int number) {
-    return Integer.toBinaryString(number);
   }
 }
