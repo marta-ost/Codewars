@@ -20,29 +20,15 @@ strange_math(15, 5) == 11
 strange_math(15, 15) == 7
 */
 
-import java.util.*;
 import java.util.stream.*;
 
 public class Strange {
   public static int mathematics(int n, int k) {
-    int[] sequence = getSortedLexicographicallySequence(n);
-    return findIndexOfNumberInSequence(sequence, k);
-  }
-  
-  private static int[] getSortedLexicographicallySequence(int lastNumberInSequence){
     return IntStream
-      .rangeClosed(0, lastNumberInSequence)
+      .rangeClosed(0, n)
       .mapToObj(i -> String.valueOf(i))
       .sorted()
-      .mapToInt(Integer::parseInt)
-      .toArray();
-  }
-  
-  private static int findIndexOfNumberInSequence(int[] sequence, int number) {
-    return IntStream
-      .range(0, sequence.length)
-      .filter(i -> sequence[i] == number)
-      .findFirst()
-      .orElse(-1);
+      .collect(Collectors.toList())
+      .indexOf(String.valueOf(k));
   }
 }
