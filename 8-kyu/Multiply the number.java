@@ -11,7 +11,7 @@ Kata.multiply(-3) == -15    // -3 * 5¹
 
 public class Kata {
   public static int multiply(int number) {
-    int power = String.valueOf(number).replace("-", "").length();
+    int power = String.valueOf(Math.abs(number)).length();
     return number * (int) Math.pow(5, power);
   }
 }
