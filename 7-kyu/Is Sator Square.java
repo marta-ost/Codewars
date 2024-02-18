@@ -52,58 +52,13 @@ boolean true or false whether or not the tablet is a Sator Square
 Enjoy!
 */
 
-import java.util.*;
-import java.util.stream.*;
-
 public class Kata {
   public static Boolean isSatorSquare(char[][] tablet) {
-    String leftToRight = getLeftToRight(tablet);
-    String topToBottom = getTopToBottom(tablet);
-    
-    String[] words = getWords(leftToRight);
-    String[] reversedWords = getReversedWords(words);
-    
-    for (String word : words) 
-      if (!topToBottom.contains(word))
-        return false;
-    
-    for (String word : reversedWords)
-      if (!leftToRight.contains(word) || !topToBottom.contains(word))
-        return false;
-    
+    for (int i = 0; i < tablet.length; i++)
+      for (int j = 0; j < tablet[i].length; j++)
+        if (tablet[i][j] != tablet[tablet.length-1-i][tablet.length-1-j] ||
+            tablet[j][i] != tablet[tablet.length-1-i][tablet.length-1-j])
+          return false;
     return true;
-  }
-  
-  private static String getLeftToRight(char[][] tablet) {
-    StringBuilder leftToRight = new StringBuilder();
-    for (int i = 0; i < tablet.length; i++) {
-      for (int j = 0; j < tablet[i].length; j++)
-        leftToRight.append(tablet[i][j]);
-      leftToRight.append(" ");
-    }
-    return leftToRight.toString();
-  }
-  
-  private static String getTopToBottom(char[][] tablet) {
-    StringBuilder topToBottom = new StringBuilder();
-    for (int i = 0; i < tablet.length; i++) {
-      for (int j = 0; j < tablet[i].length; j++)
-        topToBottom.append(tablet[j][i]);
-      topToBottom.append(" ");
-    }
-    return topToBottom.toString();
-  }
-  
-  private static String[] getWords(String leftToRight) {
-    return Arrays
-      .stream(leftToRight.split(" "))
-      .toArray(String[]::new);
-  }
-  
-  private static String[] getReversedWords(String[] words) {
-    return Arrays
-      .stream(words)
-      .map(word -> new StringBuilder(word).reverse().toString())
-      .toArray(String[]::new);
   }
 }
