@@ -26,8 +26,8 @@ class Solution {
       .range(a, b)
       .mapToObj(String::valueOf)
       .filter(s -> s.matches("[853]+") 
-                && s.replaceAll("[35]", "").length() >= s.replaceAll("[38]", "").length() 
-                && s.replaceAll("[38]", "").length() >= s.replaceAll("[58]", "").length())
+                && s.replaceAll("[^8]", "").length() >= s.replaceAll("[^5]", "").length() 
+                && s.replaceAll("[^5]", "").length() >= s.replaceAll("[^3]", "").length())
       .count();
   }
 }
