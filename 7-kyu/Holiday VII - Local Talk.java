@@ -7,13 +7,8 @@ Anyway, as some basic language education(??) this kata requires you to turn any 
 Pak should not be the first or last word. Strings of just spaces should return an empty string.
 */
 
-import java.util.*;
-import java.util.stream.*;
-
 public class Kata {
   public static String pak(final String s) {
-    return Arrays
-        .stream(s.split(" "))
-        .collect(Collectors.joining(" pak "));
+    return String.join(" pak ", s.split(" "));
   }
 }
