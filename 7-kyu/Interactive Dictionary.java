@@ -29,7 +29,6 @@ public class Dictionary {
   }
 
   public String look(String key) {
-    return dictionary.containsKey(key) ? dictionary.get(key) 
-      : "Cant find entry for " + key;
+    return dictionary.getOrDefault(key, "Cant find entry for " + key);
   }
 }
