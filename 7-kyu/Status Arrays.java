@@ -19,16 +19,11 @@ public class Rays {
     return IntStream
       .range(0, nums.length)
       .boxed()
-      .sorted((i1, i2) -> Integer.compare(i1 + findCountOfElemsSmallerThanElemAtIndex(nums, i1),
-                                          i2 + findCountOfElemsSmallerThanElemAtIndex(nums, i2)))
+      .sorted(Comparator.comparingLong(i -> i + IntStream
+                                       .range(0, nums.length)
+                                       .filter(j -> nums[j] < nums[i])
+                                       .count()))
       .mapToInt(i -> nums[i])
       .toArray();
   }
-  
-  private static int findCountOfElemsSmallerThanElemAtIndex(int[] nums, int index) {
-    return (int) IntStream
-      .range(0, nums.length)
-      .filter(i -> nums[i] < nums[index])
-      .count();
-    }
 }
