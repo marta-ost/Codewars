@@ -27,12 +27,12 @@ public class BitsBattle {
   static String bitsBattle(int[] numbers) {  
     int odds = Arrays.stream(numbers)
       .filter(i -> i % 2 != 0)
-      .map(i -> Integer.toBinaryString(i).replace("0", "").length())
+      .map(i -> Integer.bitCount(i))
       .sum();
     
     int evens = Arrays.stream(numbers)
       .filter(i -> i % 2 == 0 && i != 0)
-      .map(i -> Integer.toBinaryString(i).replace("1", "").length())
+      .map(i -> Integer.toBinaryString(i).length() - Integer.bitCount(i))
       .sum();
 
     return odds == evens ? "tie" 
