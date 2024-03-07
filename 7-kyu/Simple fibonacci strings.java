@@ -18,21 +18,11 @@ More examples in test cases. Good luck!
 
 class Solution {
   public static String solve(int n) {
-    String f0 = "0";
-    String f1 = "01";
-    String f = "";
-    
     if (n == 0)
-      return f0;
+      return "0";
     if (n == 1)
-      return f1;
+      return "01";
     
-    for (int i = 2; i <= n; i++) {
-      f = f1 + f0;
-      f0 = f1;
-      f1 = f;
-    }
-    
-    return f;
+    return solve(n - 1) + solve(n - 2);
   }
 }
