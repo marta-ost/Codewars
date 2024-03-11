@@ -11,7 +11,7 @@ public class God {
   }
 }
 
-class Human {
+abstract class Human {
 }
 
 class Man extends Human {
