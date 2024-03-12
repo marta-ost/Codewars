@@ -16,11 +16,6 @@ Zero alone is fine, don't worry about it. Poor guy anyway
 
 public class NoBoring {
   public static int noBoringZeros(int n) {
-    String number = String.valueOf(n);
-    if (number.endsWith("0") && n != 0) {
-      n = Integer.parseInt(number.substring(0, number.length() - 1));
-      return noBoringZeros(n);
-    }
-    return n;
+    return n % 10 == 0 && n != 0 ? noBoringZeros(n / 10) : n;
   }
 }
