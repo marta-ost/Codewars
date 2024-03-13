@@ -13,11 +13,11 @@ Some useful associations relevant to this kata:
 */
 
 public class Converter {
-  static final float IMPERIAL_GALLON = 4.54609188f;
-  static final float MILE = 1.609344f;
+  static final float LITRES_IN_GALLON = 4.54609188f;
+  static final float KILOMETRES_IN_MILE = 1.609344f;
   
   public static float mpgToKPM(final float mpg) {
-    float kpl = mpg * MILE / IMPERIAL_GALLON;
+    float kpl = mpg * KILOMETRES_IN_MILE / LITRES_IN_GALLON;
     return Math.round(kpl * 100.0f) / 100.0f;
   }
 }
