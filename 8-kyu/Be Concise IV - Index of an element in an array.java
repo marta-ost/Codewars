@@ -10,7 +10,7 @@ Provided is a function Kata which accepts two parameters in the following order:
 
 class Solution {
   static String kata(String[] a, String s) {
-    int i = java.util.Arrays.asList(a).indexOf(s);
-    return i >= 0 ? i + "" : "Not found";
+    int i = java.util.List.of(a).indexOf(s);
+    return i < 0 ? "Not found" : i + "";
   }
 }
