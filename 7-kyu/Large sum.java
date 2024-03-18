@@ -14,8 +14,8 @@ public class LargeSum {
   public static String firstTenDigitsOfSum(String[] numbers) {
     BigInteger sum =  Arrays
       .stream(numbers)
-      .map(s -> new BigInteger(s))
-      .reduce((subtotal, element) -> subtotal.add(element))
+      .map(BigInteger::new)
+      .reduce(BigInteger::add)
       .get();
     
     return String.valueOf(sum).substring(0, 10);
