@@ -11,18 +11,11 @@ import java.util.*;
 
 public class Swappairs {
   public Object[][][] swapp(Object[][] input) {
-    Object[][] copy = Arrays
+    Object[][] swapped = Arrays
       .stream(input)
-      .map(array -> array.clone())
+      .map(pair -> new Object[]{pair[1], pair[0]})
       .toArray(Object[][]::new);
     
-    for (Object[] o : copy) {
-      Object temp = o[0];
-      o[0] = o[1];
-      o[1] = temp;   
-    }
-    
-    Object[][][] result = {input, copy};
-    return result;
+    return new Object[][][]{input, swapped};
   }
 }
