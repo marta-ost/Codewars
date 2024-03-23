@@ -28,6 +28,8 @@ public class SequenceSum {
   public static String showSequence(int value) {
     if (value < 0)
       return value + "<0";
+    if (value == 0)
+      return "0=0";
     
     String addition = IntStream
       .rangeClosed(0, value)
@@ -38,6 +40,6 @@ public class SequenceSum {
       .rangeClosed(0, value)
       .sum();
     
-    return value == 0 ? addition + "=" + sum : addition + " = " + sum;
+    return addition + " = " + sum;
   }
 }
