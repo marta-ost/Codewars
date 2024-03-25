@@ -30,7 +30,6 @@ public class ClosestToZero {
       .mapToInt(Integer::intValue)
       .toArray();
               
-    return Math.abs(closestAsc[0]) == Math.abs(closestAsc[1]) && closestAsc[0] != closestAsc[1] ? null
-      : closestAsc[0];
+    return closestAsc[0] + closestAsc[1] == 0 ? null : closestAsc[0];
   }
 }
