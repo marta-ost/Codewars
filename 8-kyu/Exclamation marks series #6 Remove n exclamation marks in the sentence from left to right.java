@@ -25,11 +25,7 @@ public class Kata {
     if (n == 0)
       return string;
     
-    int firstOccurenceIndex = string.indexOf("!");
-    if (firstOccurenceIndex == -1)
-      return string;
-    
-    string = string.substring(0, firstOccurenceIndex) + string.substring(firstOccurenceIndex + 1);
+    string = string.replaceFirst("!", "");
     
     return remove(string, n - 1);
   }
