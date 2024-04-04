@@ -22,8 +22,6 @@ Examples
 
 public class Kata {
   public static String integrate(int coefficient, int exponent) {
-    exponent++;
-    coefficient /= exponent;
-    return coefficient + "x^" + exponent;
+    return coefficient / ++exponent + "x^" + exponent;
   }
 }
