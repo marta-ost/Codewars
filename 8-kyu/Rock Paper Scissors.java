@@ -12,16 +12,17 @@ Examples(Input1, Input2 --> Output):
 "paper", "paper" --> "Draw!"
 */
 
+import java.util.*;
+
 public class Kata {
   final static String SCISSORS = "scissors";
   final static String PAPER = "paper";
   final static String ROCK = "rock";
+  final static List<String> wins = List.of(SCISSORS + PAPER, PAPER + ROCK, ROCK + SCISSORS);
   
-  public static String rps(String p1, String p2) {
+  public static String rps(String p1, String p2) {  
     return p1.equals(p2) ? "Draw!"
-      : p1.equals(SCISSORS) && p2.equals(PAPER) ||
-        p1.equals(PAPER) && p2.equals(ROCK) ||
-        p1.equals(ROCK) && p2.equals(SCISSORS) ? "Player 1 won!"
+      : wins.contains(p1 + p2) ? "Player 1 won!"
       : "Player 2 won!";
   }
 }
