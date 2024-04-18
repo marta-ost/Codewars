@@ -27,20 +27,15 @@ I have also created other katas. Take a look if you enjoyed this kata!
 */
 
 import java.util.stream.*;
+import java.util.*;
 
 public class Kata {
   public static int[] sortByValueAndIndex(int[] array) {
     return IntStream
       .range(0, array.length)
       .boxed()
-      .sorted((i1, i2) -> productOfValueAndIndex(array, i1)
-              .compareTo(productOfValueAndIndex(array, i2)))
-      .mapToInt(Integer::intValue)
-      .map(i -> array[i])
+      .sorted(Comparator.comparingInt(i -> (i + 1) * array[i]))
+      .mapToInt(i -> array[i])
       .toArray();
-  }
-              
-  private static Integer productOfValueAndIndex(int[] array, int i) {
-    return (i + 1) * array[i];
   }
 }
