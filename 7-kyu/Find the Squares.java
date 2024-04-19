@@ -12,12 +12,11 @@ Examples
 
 public class Solution {
   public static String findSquares(int n) {
-    for (int i = 1; i < 1000000; i++) {
-      long bigger = (long) Math.pow(i, 2);
-      long smaller = (long) Math.pow(i - 1, 2);
-      if (bigger - smaller == n)
-        return bigger + "-" + smaller;
-    }
-    return "";
+    // for any consecutive a, b where a > b:
+    // a^2 - b^2 = a + b;
+    
+    long a = (n + 1) / 2;
+    long b = a - 1;
+    return a * a + "-" + b * b;
   }
 }
