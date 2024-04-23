@@ -22,10 +22,8 @@ public class Representation {
 	public static int daysRepresented(int[][] trips) {
     return (int) Arrays
       .stream(trips)
-      .map(array -> IntStream
-          .rangeClosed(array[0], array[1])
-          .toArray())
-      .flatMapToInt(array -> Arrays.stream(array))
+      .flatMapToInt(array -> IntStream
+                    .rangeClosed(array[0], array[1]))
       .distinct()
       .count();
   }
