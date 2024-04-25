@@ -39,16 +39,6 @@ Fun with lists: reduce
 
 class Solution {
   static int length(Node head) {
-    if (head == null)
-      return 0;
-    
-    int length = 1;
-  
-    while (head.next != null) {
-      head = head.next;
-      length++;
-    }
-    
-    return length;
+    return head == null ? 0 : 1 + length(head.next);
   }
 }
