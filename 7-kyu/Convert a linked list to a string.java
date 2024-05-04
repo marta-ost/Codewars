@@ -60,21 +60,6 @@ Enjoy, and don't forget to check out my other Kata Series :D
 
 public class Kata {
   public static String stringify(Node list) {
-    StringBuilder stringBuilder = new StringBuilder();
-    
-    if (list != null)
-      stringBuilder.append(list.getData()).append(" -> ");
-    
-    try {
-      while (list.getNext() != null) {
-        list = list.getNext();
-        stringBuilder.append(list.getData()).append(" -> ");
-      }
-    } catch (Exception e) {
-    }
-    
-    stringBuilder.append("null");
-    
-    return stringBuilder.toString();
+    return list == null ? "null" : list.getData() + " -> " + stringify(list.getNext());
   }
 }
