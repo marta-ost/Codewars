@@ -48,12 +48,9 @@ public class Dinglemouse {
   }
   
   private static int getDifferences(String bird1, String bird2) {
-    String[] letters1 = bird1.split("");
-    String[] letters2 = bird2.split("");
-    
     int differences = 0;
-    for (int i = 0; i < letters1.length; i++)
-      if (!letters1[i].equals(letters2[i]))
+    for (int i = 0; i < bird1.length(); i++)
+      if (bird1.charAt(i) != bird2.charAt(i))
         differences++;
     return differences;
   }
