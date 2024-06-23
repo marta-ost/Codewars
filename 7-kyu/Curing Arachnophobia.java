@@ -23,40 +23,21 @@ Note: the eyes are symmetric, and their total amount is 2 to the power of body s
 You will also be given only valid data. That's it for the instructions, you can start coding!
 */
 
-import java.util.*;
-
 public class Spiders {
-  static Map<Integer, String> legs = Map.of(
-    1, "^",
-    2, "/\\",
-    3, "/╲",
-    4, "╱╲",
-    5, "^",
-    6, "/\\",
-    7, "╱\\",
-    8, "╱╲"
-  );
-  
-  static Map<Integer, String> bodies = Map.of(
-    1, "(",
-    2, "((",
-    3, "(((",
-    4, ")",
-    5, "))",
-    6, ")))"
-  );
+  static String[] legs = {"^", "/\\", "/╲", "╱╲", "^", "/\\", "╱\\", "╱╲"};
+  static String[] bodies = {"(", "((", "(((", ")", "))", ")))"};
   
   public static String drawSpider(int legSize, int bodySize, char mouth, char eye) {
     StringBuilder spider = new StringBuilder();
     String eyes = String.valueOf(eye).repeat((int) (Math.pow(2, bodySize) / 2));
     spider
-      .append(legs.get(legSize))
-      .append(bodies.get(bodySize))
+      .append(legs[legSize - 1])
+      .append(bodies[bodySize - 1])
       .append(eyes)
       .append(mouth)
       .append(eyes)
-      .append(bodies.get(bodySize + 3))
-      .append(legs.get(legSize + 4));
+      .append(bodies[bodySize + 2])
+      .append(legs[legSize + 3]);
     return spider.toString();
   }
 }
