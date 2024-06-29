@@ -21,36 +21,29 @@ isSmooth(111) == "non-smooth"
 The provided input n is always going to be a positive number > 1.
 */
 
-import java.util.*;
-
 public class Solution {
   public static String isSmooth(long n) {
-    List<Integer> factors = new ArrayList<>();
+    String result = "";
     
-    while (true) {
+    while (n > 1) {
       if (n % 2 == 0) {
-        factors.add(2);
         n /= 2;
+        result = "power of 2";
       } else if (n % 3 == 0) {
-        factors.add(3);
         n /= 3;
+        result = "3-smooth";
       } else if (n % 5 == 0) {
-        factors.add(5);
         n /= 5;
+        result = "Hamming number";
       } else if (n % 7 == 0) {
-        factors.add(7);
         n /= 7;
+        result = "humble number";
       } else {
-        factors.add((int) n);
+        result = "non-smooth";
         break;
       }
     }
     
-    int maxFactor = Collections.max(factors);
-    return maxFactor == 2 ? "power of 2"
-      : maxFactor == 3 ? "3-smooth"
-      : maxFactor == 5 ? "Hamming number"
-      : maxFactor == 7 ? "humble number"
-      : "non-smooth";
+    return result;
   }
 }
